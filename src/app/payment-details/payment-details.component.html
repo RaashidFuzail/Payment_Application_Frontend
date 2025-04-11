@@ -1,0 +1,28 @@
+<div class="bg-body-secondary text-center py-5 rounded-2">
+    <h1 class="dispay-6 fw-bold">
+        Payment Details Register
+    </h1>
+</div>
+<div class="row mt-2">
+    <div class="col-6">
+        <app-payment-detail-form />
+    </div>
+    <div class="col-6 scrollable-div">
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-start mb-2 border px-4 py-3 rounded-3"
+                *ngFor="let pd of paymentSer.list.slice().reverse()">
+                <div class="flex-grow-1 mouse-hover">
+                    <div class="fw-bold">{{pd.cardOwnerName}}</div>
+                    <div>{{pd.cardNumber}}</div>
+                    <div class="fw-bold">{{pd.expirationDate}}</div>
+                </div>
+                <span class="mx-2">
+                    <i class="fa fa-pencil mouse-hover" (click)="populateRecord(pd)"></i>
+                </span>
+                <span class="mx-2">
+                    <i class="fa-solid fa-trash-can fw-bold mouse-hover" aria-hidden="true" (click)="deleteRecord(pd.paymentDetailID)"></i>
+                </span>
+            </li>
+        </ul>
+    </div>
+</div>
